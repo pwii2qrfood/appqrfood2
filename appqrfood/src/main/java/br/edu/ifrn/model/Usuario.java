@@ -20,28 +20,29 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	private int idCliente;
+	@Column ( name = "id_usuario" )
+	private int idUsuario;
 	
-	@Column( name = "nome_completo", nullable = false )
-	private String nomeCompletoCliente;
+	@Column( name = "nome_completo_usuario", nullable = false )
+	private String nomeCompletoUsuario;
 	
-	@Column( name = "cpf_cliente", nullable = false, length = 14 )
-	private String cpfCliente;
+	@Column( name = "cpf_usuario", nullable = false, length = 14 )
+	private String cpfUsuario;
 	
-	@Column( name = "rg_cliente", nullable = false, length = 10 )
-	private String rgCliente;
+	@Column( name = "rg_usuario", nullable = false, length = 10 )
+	private String rgUsuario;
 		
-	@Column( name = "tipo_cliente", nullable = false, length = 1 )
-	private String tipoCliente;
+	@Column( name = "tipo_usuario", nullable = false, length = 1 )
+	private String tipoUsuario;
 	
-	@Column( name = "nome_cliente", nullable = false, length = 20 )
-	private String nomeCliente;
+	@Column( name = "nome_usuario", nullable = false, length = 20 )
+	private String nomeUsuario;
 	
-	@Column( name = "sobrenome_cliente", nullable = false, length = 20 )
-	private String sobrenomeCliente;
+	@Column( name = "sobrenome_usuario", nullable = false, length = 20 )
+	private String sobrenomeUsuario;
 
-	@Column( name = "senha_cliente", nullable = false, length = 8 )
-	private String senhaCliente;
+	@Column( name = "senha_usuario", nullable = false, length = 8 )
+	private String senhaUsuario;
 
 	@ManyToOne
 	@JoinColumn( name = "id_situacao" )
@@ -50,69 +51,83 @@ public class Usuario implements Serializable {
 	public Usuario() {
 		
 	}
-
-	public int getIdCliente() {
-		return idCliente;
+	
+	public Usuario(int idUsuario, String nomeCompletoUsuario, String cpfUsuario, String rgUsuario, String tipoUsuario,
+			String nomeUsuario, String sobrenomeUsuario, String senhaUsuario, Situacao situacao) {
+		super();
+		this.idUsuario = idUsuario;
+		this.nomeCompletoUsuario = nomeCompletoUsuario;
+		this.cpfUsuario = cpfUsuario;
+		this.rgUsuario = rgUsuario;
+		this.tipoUsuario = tipoUsuario;
+		this.nomeUsuario = nomeUsuario;
+		this.sobrenomeUsuario = sobrenomeUsuario;
+		this.senhaUsuario = senhaUsuario;
+		this.situacao = situacao;
 	}
 
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
+	public int getIdUsuario() {
+		return idUsuario;
 	}
 
-	public String getNomeCompletoCliente() {
-		return nomeCompletoCliente;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
-	public void setNomeCompletoCliente(String nomeCompletoCliente) {
-		this.nomeCompletoCliente = nomeCompletoCliente;
+	public String getNomeCompletoUsuario() {
+		return nomeCompletoUsuario;
 	}
 
-	public String getCpfCliente() {
-		return cpfCliente;
+	public void setNomeCompletoUsuario(String nomeCompletoUsuario) {
+		this.nomeCompletoUsuario = nomeCompletoUsuario;
 	}
 
-	public void setCpfCliente(String cpfCliente) {
-		this.cpfCliente = cpfCliente;
+	public String getCpfUsuario() {
+		return cpfUsuario;
 	}
 
-	public String getRgCliente() {
-		return rgCliente;
+	public void setCpfUsuario(String cpfUsuario) {
+		this.cpfUsuario = cpfUsuario;
 	}
 
-	public void setRgCliente(String rgCliente) {
-		this.rgCliente = rgCliente;
+	public String getRgUsuario() {
+		return rgUsuario;
 	}
 
-	public String getTipoCliente() {
-		return tipoCliente;
+	public void setRgUsuario(String rgUsuario) {
+		this.rgUsuario = rgUsuario;
 	}
 
-	public void setTipoCliente(String tipoCliente) {
-		this.tipoCliente = tipoCliente;
+	public String getTipoUsuario() {
+		return tipoUsuario;
 	}
 
-	public String getNomeCliente() {
-		return nomeCliente;
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public String getNomeUsuario() {
+		return nomeUsuario;
 	}
 
-	public String getSobrenomeCliente() {
-		return sobrenomeCliente;
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 
-	public void setSobrenomeCliente(String sobrenomeCliente) {
-		this.sobrenomeCliente = sobrenomeCliente;
+	public String getSobrenomeUsuario() {
+		return sobrenomeUsuario;
 	}
 
-	public String getSenhaCliente() {
-		return senhaCliente;
+	public void setSobrenomeUsuario(String sobrenomeUsuario) {
+		this.sobrenomeUsuario = sobrenomeUsuario;
 	}
 
-	public void setSenhaCliente(String senhaCliente) {
-		this.senhaCliente = senhaCliente;
+	public String getSenhaUsuario() {
+		return senhaUsuario;
+	}
+
+	public void setSenhaUsuario(String senhaUsuario) {
+		this.senhaUsuario = senhaUsuario;
 	}
 
 	public Situacao getSituacao() {
@@ -127,7 +142,7 @@ public class Usuario implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idCliente;
+		result = prime * result + idUsuario;
 		return result;
 	}
 
@@ -140,10 +155,16 @@ public class Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		if (idCliente != other.idCliente)
+		if (idUsuario != other.idUsuario)
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Usuario [idUsuario=" + idUsuario + ", nomeCompletoUsuario=" + nomeCompletoUsuario + ", cpfUsuario="
+				+ cpfUsuario + ", rgUsuario=" + rgUsuario + ", tipoUsuario=" + tipoUsuario + ", nomeUsuario="
+				+ nomeUsuario + ", sobrenomeUsuario=" + sobrenomeUsuario + ", senhaUsuario=" + senhaUsuario
+				+ ", situacao=" + situacao + "]";
+	}	
 }
