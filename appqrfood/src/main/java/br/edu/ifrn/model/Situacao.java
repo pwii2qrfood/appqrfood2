@@ -72,5 +72,11 @@ public class Situacao implements Serializable {
 		if (idSituacao != other.idSituacao)
 			return false;
 		return true;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return "Situacao [idSituacao=" + idSituacao + ", tipoSituacao=" + tipoSituacao + ", descricao=" + descricao
+				+ "]";
+	}
 }

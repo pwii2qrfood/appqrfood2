@@ -24,19 +24,19 @@ private static final long serialVersionUID = 1L;
 		manager.merge(novousuario);
 	}
 	
-	public Usuario pesquisarPorId(int idCliente) {
-		return manager.find(Usuario.class, idCliente);
+	public Usuario pesquisarPorId(int idUsuario) {
+		return manager.find(Usuario.class, idUsuario);
 	}
 	
 	public void remover(Usuario usuario) {
-		usuario = pesquisarPorId(usuario.getIdCliente());
+		usuario = pesquisarPorId(usuario.getIdUsuario());
 		manager.remove(usuario);
 	}
 	
 	public List<Usuario> pesquisar (String nome){
 		TypedQuery<Usuario> consulta =
-				manager.createQuery("from Usuario where nome_completo like :nome_completo", Usuario.class);
-		consulta.setParameter("nome_completo", nome + "%");
+				manager.createQuery("from Usuario where nome_completo_usuario like :nome_completo_usuario", Usuario.class);
+		consulta.setParameter("nome_completo_usuario", nome + "%");
 		return consulta.getResultList();
 	}
 

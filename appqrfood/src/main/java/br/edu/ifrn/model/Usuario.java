@@ -1,6 +1,7 @@
 package br.edu.ifrn.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,9 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name=" usuario")
+@Table ( name=" usuario" )
 
 public class Usuario implements Serializable {
 	
@@ -23,47 +26,54 @@ public class Usuario implements Serializable {
 	@Column ( name = "id_usuario" )
 	private int idUsuario;
 	
-	@Column( name = "nome_completo_usuario", nullable = false )
+	@Column ( name = "nome_completo_usuario", nullable = false )
 	private String nomeCompletoUsuario;
 	
-	@Column( name = "cpf_usuario", nullable = false, length = 14 )
-	private String cpfUsuario;
-	
-	@Column( name = "rg_usuario", nullable = false, length = 10 )
-	private String rgUsuario;
-		
-	@Column( name = "tipo_usuario", nullable = false, length = 1 )
-	private String tipoUsuario;
-	
-	@Column( name = "nome_usuario", nullable = false, length = 20 )
+	@Column ( name = "nome_usuario", nullable = false, length = 20 )
 	private String nomeUsuario;
 	
-	@Column( name = "sobrenome_usuario", nullable = false, length = 20 )
+	@Column ( name = "sobrenome_usuario", nullable = false, length = 20 )
 	private String sobrenomeUsuario;
-
-	@Column( name = "senha_usuario", nullable = false, length = 8 )
+	
+	@Column ( name = "senha_usuario", nullable = false, length = 8 )
 	private String senhaUsuario;
-
+	
+	@Column ( name = "email_usuario", nullable = false, length = 8 )
+	private String emailUsuario;
+	
+	@Column ( name = "cpf_usuario", nullable = false, length = 14 )
+	private String cpfUsuario;
+	
+	@Column ( name = "rg_usuario", nullable = false, length = 10 )
+	private String rgUsuario;
+	
+	@Temporal (TemporalType.DATE)
+	private Date dataNascimento;
+		
+	@Column ( name = "tipo_usuario", nullable = false, length = 1 )
+	private String tipoUsuario;
+	
 	@ManyToOne
-	@JoinColumn( name = "id_situacao" )
+	@JoinColumn ( name = "id_situacao" )
 	private Situacao situacao;
 
 	public Usuario() {
 		
 	}
 	
-	public Usuario(int idUsuario, String nomeCompletoUsuario, String cpfUsuario, String rgUsuario, String tipoUsuario,
-			String nomeUsuario, String sobrenomeUsuario, String senhaUsuario, Situacao situacao) {
-		super();
-		this.idUsuario = idUsuario;
+	public Usuario(int idUsuario, String nomeCompletoUsuario, String nomeUsuario, String sobrenomeUsuario,
+			String senhaUsuario, String emailUsuario, String cpfUsuario, String rgUsuario, String tipoUsuario, Situacao situacao) {
+		//super();
+		this.idUsuario           = idUsuario;
 		this.nomeCompletoUsuario = nomeCompletoUsuario;
-		this.cpfUsuario = cpfUsuario;
-		this.rgUsuario = rgUsuario;
-		this.tipoUsuario = tipoUsuario;
-		this.nomeUsuario = nomeUsuario;
-		this.sobrenomeUsuario = sobrenomeUsuario;
-		this.senhaUsuario = senhaUsuario;
-		this.situacao = situacao;
+		this.nomeUsuario         = nomeUsuario;
+		this.sobrenomeUsuario    = sobrenomeUsuario;
+		this.senhaUsuario        = senhaUsuario;
+		this.emailUsuario        = emailUsuario;
+		this.cpfUsuario          = cpfUsuario;
+		this.rgUsuario           = rgUsuario;
+		this.tipoUsuario         = tipoUsuario;
+		this.situacao            = situacao;
 	}
 
 	public int getIdUsuario() {
@@ -80,30 +90,6 @@ public class Usuario implements Serializable {
 
 	public void setNomeCompletoUsuario(String nomeCompletoUsuario) {
 		this.nomeCompletoUsuario = nomeCompletoUsuario;
-	}
-
-	public String getCpfUsuario() {
-		return cpfUsuario;
-	}
-
-	public void setCpfUsuario(String cpfUsuario) {
-		this.cpfUsuario = cpfUsuario;
-	}
-
-	public String getRgUsuario() {
-		return rgUsuario;
-	}
-
-	public void setRgUsuario(String rgUsuario) {
-		this.rgUsuario = rgUsuario;
-	}
-
-	public String getTipoUsuario() {
-		return tipoUsuario;
-	}
-
-	public void setTipoUsuario(String tipoUsuario) {
-		this.tipoUsuario = tipoUsuario;
 	}
 
 	public String getNomeUsuario() {
@@ -128,6 +114,46 @@ public class Usuario implements Serializable {
 
 	public void setSenhaUsuario(String senhaUsuario) {
 		this.senhaUsuario = senhaUsuario;
+	}
+
+	public String getEmailUsuario() {
+		return emailUsuario;
+	}
+	
+	public void setEmailUsuario(String emailUsuario) {
+		this.emailUsuario = emailUsuario;
+	}
+	
+	public String getCpfUsuario() {
+		return cpfUsuario;
+	}
+
+	public void setCpfUsuario(String cpfUsuario) {
+		this.cpfUsuario = cpfUsuario;
+	}
+
+	public String getRgUsuario() {
+		return rgUsuario;
+	}
+
+	public void setRgUsuario(String rgUsuario) {
+		this.rgUsuario = rgUsuario;
+	}
+	
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+	
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
 	public Situacao getSituacao() {
@@ -162,9 +188,11 @@ public class Usuario implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", nomeCompletoUsuario=" + nomeCompletoUsuario + ", cpfUsuario="
-				+ cpfUsuario + ", rgUsuario=" + rgUsuario + ", tipoUsuario=" + tipoUsuario + ", nomeUsuario="
+		return "Usuario ["
+				+ "idUsuario=" + idUsuario + ", nomeCompletoUsuario=" + nomeCompletoUsuario + ", nomeUsuario="
 				+ nomeUsuario + ", sobrenomeUsuario=" + sobrenomeUsuario + ", senhaUsuario=" + senhaUsuario
-				+ ", situacao=" + situacao + "]";
-	}	
+				+ ", emailUsuario=" + emailUsuario + ", cpfUsuario=" + cpfUsuario + ", rgUsuario=" + rgUsuario
+				+ ", dataNascimento=" + dataNascimento + ", tipoUsuario=" + tipoUsuario + ", situacao=" + situacao
+				+ "]";
+	}
 }
