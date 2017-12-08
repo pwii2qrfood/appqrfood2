@@ -2,6 +2,8 @@ package br.edu.ifrn.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,12 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table ( name=" usuario" )
+@Table ( name= "usuario" )
 
 public class Usuario implements Serializable {
 	
@@ -54,8 +57,11 @@ public class Usuario implements Serializable {
 	private String tipoUsuario;
 	
 	@ManyToOne
-	@JoinColumn ( name = "id_situacao" )
+	@JoinColumn ( name = "id_situacao", nullable = false )
 	private Situacao situacao;
+	
+	@OneToMany ( mappedBy = "usuario" )
+	private List<Telefone> telefone = new ArrayList<Telefone>();
 
 	public Usuario() {
 		
@@ -162,6 +168,14 @@ public class Usuario implements Serializable {
 
 	public void setSituacao(Situacao situacao) {
 		this.situacao = situacao;
+	}
+
+	public List<Telefone> getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(List<Telefone> telefone) {
+		this.telefone = telefone;
 	}
 
 	@Override

@@ -1,12 +1,15 @@
 package br.edu.ifrn.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +26,11 @@ public class Situacao implements Serializable {
 	
 	@Column( name = "descricao", nullable = false )
 	private String descricao;
+	
+	@OneToMany (mappedBy = "situacao")
+	private List<Usuario> usuario = new ArrayList<Usuario>();
+	private List<Funcionario> funcionario = new ArrayList<Funcionario>();
+	private List<FormaPagamento> formapagamento = new ArrayList<FormaPagamento>();
 	
 	public Situacao() {
 		
@@ -50,6 +58,30 @@ public class Situacao implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<Funcionario> getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(List<Funcionario> funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public List<FormaPagamento> getFormapagamento() {
+		return formapagamento;
+	}
+
+	public void setFormapagamento(List<FormaPagamento> formapagamento) {
+		this.formapagamento = formapagamento;
 	}
 
 	@Override
