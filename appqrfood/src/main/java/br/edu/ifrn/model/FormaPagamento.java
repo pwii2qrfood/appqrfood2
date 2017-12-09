@@ -29,7 +29,7 @@ public class FormaPagamento implements Serializable {
 	private String descricao;
 	
 	@ManyToOne
-	@JoinColumn ( name = "id_situacao")
+	@JoinColumn ( name = "id_situacao", nullable = false )
 	private Situacao situacao;
 
 	public FormaPagamento() {

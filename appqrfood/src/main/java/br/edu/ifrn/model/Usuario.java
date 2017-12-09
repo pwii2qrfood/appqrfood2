@@ -41,7 +41,7 @@ public class Usuario implements Serializable {
 	@Column ( name = "senha_usuario", nullable = false, length = 8 )
 	private String senhaUsuario;
 	
-	@Column ( name = "email_usuario", nullable = false, length = 8 )
+	@Column ( name = "email_usuario", nullable = false, length = 90 )
 	private String emailUsuario;
 	
 	@Column ( name = "cpf_usuario", nullable = false, length = 14 )
@@ -51,6 +51,7 @@ public class Usuario implements Serializable {
 	private String rgUsuario;
 	
 	@Temporal (TemporalType.DATE)
+	@Column ( name = "data_nascimento1" )
 	private Date dataNascimento;
 		
 	@Column ( name = "tipo_usuario", nullable = false, length = 1 )

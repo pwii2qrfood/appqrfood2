@@ -57,11 +57,11 @@ public class Funcionario implements Serializable {
 	private Date dataNascimento;
 	
 	@Temporal ( TemporalType.DATE )
-	@Column ( name = "data_nascimento", nullable = false )
+	@Column ( name = "data_admissao", nullable = false )
 	private Date dataAdmissao;
 	
 	@Temporal ( TemporalType.DATE )
-	@Column ( name = "data_nascimento", nullable = false )
+	@Column ( name = "data_demissao", nullable = false )
 	private Date dataDemissao;
 	
 	@ManyToOne

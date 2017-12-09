@@ -19,6 +19,7 @@ public class Situacao implements Serializable {
 
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
+	@Column ( name = "id_situacao" )
 	private int idSituacao;
 	
 	@Column( name = "tipo_situacao", nullable = false  )
@@ -27,15 +28,33 @@ public class Situacao implements Serializable {
 	@Column( name = "descricao", nullable = false )
 	private String descricao;
 	
-	@OneToMany (mappedBy = "situacao")
+	@OneToMany ( mappedBy = "situacao" )
 	private List<Usuario> usuario = new ArrayList<Usuario>();
+	
+	@OneToMany ( mappedBy = "situacao" )
 	private List<Funcionario> funcionario = new ArrayList<Funcionario>();
+	
+	@OneToMany ( mappedBy = "situacao" )
 	private List<FormaPagamento> formapagamento = new ArrayList<FormaPagamento>();
+	
+	@OneToMany ( mappedBy = "situacao" )
+	private List<Produto> produto = new ArrayList<Produto>();
 	
 	public Situacao() {
 		
 	}
 	
+	public Situacao(int idSituacao, String tipoSituacao, String descricao, List<Usuario> usuario,
+			List<Funcionario> funcionario, List<FormaPagamento> formapagamento) {
+		//super();
+		this.idSituacao = idSituacao;
+		this.tipoSituacao = tipoSituacao;
+		this.descricao = descricao;
+		this.usuario = usuario;
+		this.funcionario = funcionario;
+		this.formapagamento = formapagamento;
+	}
+
 	public int getIdSituacao() {
 		return idSituacao;
 	}
@@ -67,7 +86,7 @@ public class Situacao implements Serializable {
 	public void setUsuario(List<Usuario> usuario) {
 		this.usuario = usuario;
 	}
-
+	
 	public List<Funcionario> getFuncionario() {
 		return funcionario;
 	}
