@@ -1,6 +1,8 @@
 package br.edu.ifrn.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +34,10 @@ public class FormaPagamento implements Serializable {
 	@ManyToOne
 	@JoinColumn ( name = "id_situacao", nullable = false )
 	private Situacao situacao;
+	
+	@OneToMany ( mappedBy = "formapagamento" )
+	private List<Pedido> pedido = new ArrayList<Pedido>();
+	
 
 	public FormaPagamento() {
 		//super();
@@ -74,6 +81,18 @@ public class FormaPagamento implements Serializable {
 
 	public void setSituacao(Situacao situacao) {
 		this.situacao = situacao;
+	}
+	
+	public List<Pedido> getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(List<Pedido> pedido) {
+		this.pedido = pedido;
+	}
+
+	public void setIdFormaPagamento(int idFormaPagamento) {
+		this.idFormaPagamento = idFormaPagamento;
 	}
 
 	@Override

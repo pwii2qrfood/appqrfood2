@@ -63,7 +63,7 @@ public class Usuario implements Serializable {
 	
 	@OneToMany ( mappedBy = "usuario" )
 	private List<Telefone> telefone = new ArrayList<Telefone>();
-
+	
 	public Usuario() {
 		
 	}

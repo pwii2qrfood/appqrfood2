@@ -1,6 +1,8 @@
 package br.edu.ifrn.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -34,6 +37,9 @@ public class Produto implements Serializable {
 	@ManyToOne
 	@JoinColumn ( name = "id_situacao", nullable = false )
 	private Situacao situacao;
+	
+	@ManyToMany ( mappedBy = "produto" )
+	private List<Pedido> pedido = new ArrayList<Pedido>();
 	
 	public Produto () {
 		
@@ -84,6 +90,14 @@ public class Produto implements Serializable {
 
 	public void setSituacao(Situacao situacao) {
 		this.situacao = situacao;
+	}
+
+	public List<Pedido> getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(List<Pedido> pedido) {
+		this.pedido = pedido;
 	}
 
 	@Override
