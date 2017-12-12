@@ -19,7 +19,6 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table ( name= "usuario" )
-
 public class Usuario implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -51,7 +50,7 @@ public class Usuario implements Serializable {
 	private String rgUsuario;
 	
 	@Temporal (TemporalType.DATE)
-	@Column ( name = "data_nascimento1" )
+	@Column ( name = "data_nascimento1", nullable = true )
 	private Date dataNascimento;
 		
 	@Column ( name = "tipo_usuario", nullable = false, length = 1 )
@@ -69,7 +68,7 @@ public class Usuario implements Serializable {
 	}
 	
 	public Usuario(int idUsuario, String nomeCompletoUsuario, String nomeUsuario, String sobrenomeUsuario,
-			String senhaUsuario, String emailUsuario, String cpfUsuario, String rgUsuario, String tipoUsuario, Situacao situacao) {
+			String senhaUsuario, String emailUsuario, String cpfUsuario, String rgUsuario, Date dataNascimento, String tipoUsuario, Situacao situacao) {
 		//super();
 		this.idUsuario           = idUsuario;
 		this.nomeCompletoUsuario = nomeCompletoUsuario;
@@ -79,6 +78,7 @@ public class Usuario implements Serializable {
 		this.emailUsuario        = emailUsuario;
 		this.cpfUsuario          = cpfUsuario;
 		this.rgUsuario           = rgUsuario;
+		this.dataNascimento      = dataNascimento;
 		this.tipoUsuario         = tipoUsuario;
 		this.situacao            = situacao;
 	}

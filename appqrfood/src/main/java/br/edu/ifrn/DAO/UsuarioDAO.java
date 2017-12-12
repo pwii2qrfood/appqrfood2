@@ -22,10 +22,10 @@ private static final long serialVersionUID = 1L;
 		this.manager = manager;
 	}
 	
-	public void adicionar(Usuario novousuario) {
-		manager.persist(novousuario);
+	public Usuario adicionar(Usuario novousuario) {
+		return manager.merge(novousuario);
 	}
-
+	
 	public Usuario editar(Usuario usuario) {
 		return usuario = pesquisarPorId(usuario.getIdUsuario());
 	}

@@ -27,7 +27,7 @@ public class SituacaoPedido implements Serializable {
 	@Column ( name = "descricao", nullable = true, length = 100 )
 	private String descricao;
 	
-	@OneToOne ( mappedBy = "situacaopedido")
+	@OneToOne ( mappedBy = "situacaopedido" )
 	private Pedido pedido;
 
 	public SituacaoPedido() {

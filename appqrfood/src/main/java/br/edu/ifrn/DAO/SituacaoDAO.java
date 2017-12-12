@@ -41,7 +41,7 @@ public class SituacaoDAO implements Serializable {
 	
 	public List<Situacao> pesquisarPorNome(String tipoSituacao){
 		TypedQuery<Situacao> resultado = 
-				manager.createQuery("select *from situacao where tipo_situacao like: tipo_situacao", Situacao.class);
+				manager.createQuery("from Situacao where tipo_situacao like:tipo_situacao", Situacao.class);
 		resultado.setParameter("tipo_situacao", tipoSituacao + "%");
 		return resultado.getResultList();
 	}

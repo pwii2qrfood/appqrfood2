@@ -31,7 +31,7 @@ public class Telefone implements Serializable {
 	private Usuario usuario;
 	
 	@ManyToOne
-	@JoinColumn ( name = "id_funcionario", nullable = false)
+	@JoinColumn ( name = "id_funcionario", nullable = false )
 	private Funcionario funcionario;
 
 	public Telefone() {

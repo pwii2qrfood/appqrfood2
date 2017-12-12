@@ -25,7 +25,6 @@ public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	
 	@Id
 	@GeneratedValue ( strategy = GenerationType.IDENTITY )
 	@Column ( name = "id_pedido" )
@@ -46,7 +45,7 @@ public class Pedido implements Serializable {
 	private Date horaPedido;
 	
 	@OneToOne
-	@JoinColumn ( name = "id_situacao_pedido" )
+	@JoinColumn ( name = "id_situacao_pedido", nullable = false )
 	private SituacaoPedido situacaopedido;
 	
 	@ManyToOne
@@ -55,9 +54,9 @@ public class Pedido implements Serializable {
 	
 	@ManyToMany
 	@JoinTable ( name = "produto_has_pedido", joinColumns = {
-			@JoinColumn ( name = "id_pedido" )},
+			@JoinColumn ( name = "id_pedido", nullable = false )},
 			inverseJoinColumns = { 
-			@JoinColumn ( name = "id_produto" )} )
+			@JoinColumn ( name = "id_produto", nullable = false )} )
 	private List <Produto> produto = new ArrayList<Produto>();
 	
 	public Pedido() {

@@ -1,3 +1,3 @@
-insert into situacao (tipo_situacao, descricao) values ("Ativo", "Cliente sendo atendido");
+insert into situacao (tipo_situacao, descricao)	values ('Ativo', 'Cliente sendo atendido');
 
-insert into usuario (nome_completo_usuario, cpf_usuario, rg_usuario, tipo_usuario, nome_usuario, sobrenome_usuario, senha_usuario, id_situacao) values ("Alex Nonato Laisa", "999999999", "822", "F", "ANL","appqrfood","ifrn", 1);
+insert into usuario (nome_completo_usuario, nome_usuario, sobrenome_usuario, senha_usuario, email_usuario, cpf_usuario, rg_usuario, data_nascimento1, tipo_usuario, id_situacao) values ('Alex Nonato Laisa', 'Alex', 'Laisa', 'ifrn2017', 'alexlaisanonato@teste.net', '999.999.999-99', '999999999','2017-01-01', 'F', 1);
