@@ -3,6 +3,7 @@ package br.edu.ifrn.DAO;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -12,6 +13,7 @@ public class UsuarioDAO implements Serializable {
 
 private static final long serialVersionUID = 1L;
 	
+	@Inject
 	private EntityManager manager;
 	
 	public UsuarioDAO() {
@@ -22,8 +24,8 @@ private static final long serialVersionUID = 1L;
 		this.manager = manager;
 	}
 	
-	public Usuario adicionar(Usuario novousuario) {
-		return manager.merge(novousuario);
+	public void adicionar(Usuario usuario) {
+		manager.persist(usuario);
 	}
 	
 	public Usuario editar(Usuario usuario) {
@@ -40,9 +42,13 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	public List<Usuario> pesquisarPorNome (String nomeCompletoUsuario){
-		TypedQuery<Usuario> resultado =
-				manager.createQuery("from Usuario where nome_completo_usuario like :nome_completo_usuario", Usuario.class);
-		resultado.setParameter("nome_completo_usuario", nomeCompletoUsuario + "%");
+		
+		String jpql = "from Usuario where nomeCompletoUsuario like :nomeCompletoUsuario";
+		
+		TypedQuery<Usuario> resultado = manager.createQuery(jpql, Usuario.class);
+		
+		resultado.setParameter("nomeCompletoUsuario", nomeCompletoUsuario + "%");
+		
 		return resultado.getResultList();
 	}
 }

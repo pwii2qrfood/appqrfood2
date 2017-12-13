@@ -3,6 +3,7 @@ package br.edu.ifrn.DAO;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -12,6 +13,7 @@ public class SituacaoDAO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Inject
 	private EntityManager manager;
 	
 	public SituacaoDAO() {
@@ -39,10 +41,10 @@ public class SituacaoDAO implements Serializable {
 		return manager.find(Situacao.class, idSituacao);
 	}
 	
-	public List<Situacao> pesquisarPorNome(String tipoSituacao){
+	public List<Situacao> pesquisarPorNome(){
 		TypedQuery<Situacao> resultado = 
-				manager.createQuery("from Situacao where tipo_situacao like:tipo_situacao", Situacao.class);
-		resultado.setParameter("tipo_situacao", tipoSituacao + "%");
+				manager.createQuery("from Situacao where tipoSituacao like:tipoSituacao", Situacao.class);
+		resultado.setParameter("tipoSituacao", "%");
 		return resultado.getResultList();
 	}
 }
