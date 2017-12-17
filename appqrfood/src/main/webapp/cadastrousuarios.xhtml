@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1993/xhtml"
 		xmlns:h="http://xmlns.jcp.org/jsf/html"
 		xmlns:f="http://xmlns.jcp.org/jsf/core">
 	<h:head>
 		<meta charset="UTF-8"/>
-		<title>Gestão de Usuários</title>
+		<title>Cadastro de Usuários</title>
 		<h:outputStylesheet library="appqrfood" name="estilo.css"/>
 	</h:head>
 	<h:body>
@@ -16,16 +16,17 @@
 		<div id="conteudo">
 			<h:form>
 				<h:panelGrid columns="2">
+				
 					<h:outputLabel value="Nome Completo: " for="nomeCompletoUsuario"/>
 					<h:inputText id="nomeCompletoUsuario"/>
 										
 					<h:outputLabel value="Primeiro Nome: " for="nomeUsuario"/>
 					<h:inputText id="nomeUsuario"/>
 					
-					<h:outputLabel value="Sobrenome: " for="sobreNomeUsuario"/>
+					<h:outputLabel value="Sobrenome: " for="sobrenomeUsuario"/>
 					<h:inputText id="sobrenomeUsuario"/>
 					
-					<h:outputText value="Senha: " for="senhaUsuario"/>
+					<h:outputLabel value="Senha: " for="senhaUsuario"/>
 					<h:inputText id="senhaUsuario"/>
 					
 					<h:outputLabel value="E-mail: " for="emailUsuario"/>
@@ -42,34 +43,50 @@
 					
 					<h:outputLabel value="Tipo Usuário: " for="tipoUsuario"/>
 					<h:inputText id="tipoUsuario"/>
-					
-					<h:outputLabel value="Telefone: " for="telefone"/>
-					<table border="1" rules="all">
-						<tr>
-							<th></th>
-						</tr>
-						
-						<tr>
-							<td></td>
-						</tr>
-					</table>
-					
+										
 					<h:outputLabel value="Situação: " for="situacao"/>
 					<h:selectOneMenu id="situacao">
 						<f:selectItem itemLabel="Selecione..." />
 					</h:selectOneMenu>
 					
-					<h:outputLabel />
+					<h:outputLabel  value="Telefene: "/>
+					<h:selectManyListbox label="Telefone: " value="Telefone">
+						<f:selectItem itemValue="1" itemLabel="Item 1"/>
+						<f:selectItem itemValue="2" itemLabel="Item 2"/>
+						<f:selectItem itemValue="3" itemLabel="Item 3"/>
+						<f:selectItem itemValue="4" itemLabel="Item 4"/>
+					</h:selectManyListbox>
+
 					<h:commandButton value="Salvar"/>
-					
-				
+
 				</h:panelGrid>
+				
+				<h:dataTable value="#{[0,1,2,3]}">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Id"/>
+						</f:facet>
+							<h:outputText value="QR food teste"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nome Completo"/>
+						</f:facet>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="E-mail"/>
+						</f:facet>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="CPF"/>
+						</f:facet>
+					</h:column>
+				</h:dataTable>
+				
 			</h:form>
-		
-		
 		</div>
-	
-		<footer>QR Food - Seu pedido sem filas</footer>
-	
+	<footer>QR Food - Seu pedido sem filas</footer>
 	</h:body>
 </html>

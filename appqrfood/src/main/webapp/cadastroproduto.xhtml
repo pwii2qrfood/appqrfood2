@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns="http://w3.org/1993/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core">	
+	<h:head>
+		<meta charset="UTF-8"/>
+		<title>Insert title here</title>
+		<h:outputStylesheet library="appqrfood" name="estilo.css"/>
+	</h:head>
+	<h:body>
+		<header>
+			<h:graphicImage library="appqrfood" name="logomarca.png"/>
+		</header>
+		
+		<div id="conteudo">
+			<h:form>
+				<h:panelGrid columns="2">
+							
+				<h:outputLabel value="Nome do Produto: " for="nomeProduto"/>
+				<h:inputText id="nomeProduto"/>
+				
+				<h:outputLabel value="Valor: " for="valor"/>
+				<h:inputText id="valor"/>
+				
+				<h:outputLabel value="Descição: " for="descricao"/>
+				<h:inputText id="descricao"/>
+				
+				<h:outputLabel value="Situacao" for="situacao"/>
+				<h:selectOneMenu>
+					<f:selectItem itemLabel="Selecione..."/>
+				</h:selectOneMenu>
+			
+				</h:panelGrid>
+			</h:form>
+		
+		</div>	
+	</h:body>
+</html>

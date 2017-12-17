@@ -1,13 +1,15 @@
 package br.edu.ifrn.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,14 +29,14 @@ public class SituacaoPedido implements Serializable {
 	@Column ( name = "descricao", nullable = true, length = 100 )
 	private String descricao;
 	
-	@OneToOne ( mappedBy = "situacaopedido" )
-	private Pedido pedido;
+	@OneToMany ( mappedBy = "situacaopedido" )
+	private List<Pedido> pedido = new ArrayList<Pedido>();
 
 	public SituacaoPedido() {
 		//super();
 	}
-
-	public SituacaoPedido(int idSituacaoPedido, String tipoSituacaoPedido, String descricao, Pedido pedido) {
+		
+	public SituacaoPedido(int idSituacaoPedido, String tipoSituacaoPedido, String descricao, List<Pedido> pedido) {
 		super();
 		this.idSituacaoPedido = idSituacaoPedido;
 		this.tipoSituacaoPedido = tipoSituacaoPedido;
@@ -66,11 +68,11 @@ public class SituacaoPedido implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Pedido getPedido() {
+	public List<Pedido> getPedido() {
 		return pedido;
 	}
 
-	public void setPedido(Pedido pedido) {
+	public void setPedido(List<Pedido> pedido) {
 		this.pedido = pedido;
 	}
 
@@ -101,9 +103,4 @@ public class SituacaoPedido implements Serializable {
 		return "SituacaoPedido [idSituacaoPedido=" + idSituacaoPedido + ", tipoSituacaoPedido=" + tipoSituacaoPedido
 				+ ", descricao=" + descricao + ", pedido=" + pedido + "]";
 	}
-	
-	
-	
-	
-
 }

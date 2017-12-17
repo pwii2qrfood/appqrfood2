@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1993/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		<meta charset="UTF-8"/>
+		<title>Cadastro de Funcionário</title>
+		<h:outputStylesheet library="appqrfood" name="estilo.css"/>
+	</h:head>
+	<h:body>
+		<header>
+			<h:graphicImage library="appqrfood" name="logomarca.png" />
+		</header>
+		
+		<div id="conteudo">
+			<h:form>
+				<h:panelGrid columns="2">
+					
+					<h:outputLabel value="Matrícula: " for="matricula"/>
+					<h:inputText id="matricula"/>
+					
+					<h:outputLabel value="Nome Completo: " for="nomeCompletoFuncionario"/>
+					<h:inputText id="nomeCompletoFuncionario"/>
+					
+					<h:outputLabel value="Primeiro Nome:" for="nomeFuncionario"/>
+					<h:inputText id="nomeFuncionario"/>
+					
+					<h:outputLabel value="Sobrenome" for="sobrenomeFuncionario"/>
+					<h:inputText id="sobrenomeFuncionario"/>
+					
+					<h:outputLabel value="Senha" for="senhaFuncionario"/>
+					<h:inputText id="senhaFuncionario"/>
+					
+					<h:outputLabel value="E-mail" for="emailFuncionario"/>
+					<h:inputText id="emailFuncionario"/>
+					
+					<h:outputLabel value="CPF" for="cpfFuncionario"/>
+					<h:inputText id="cpfFuncionario"/>
+					
+					<h:outputLabel value="RG" for="rgFuncionario"/>
+					<h:inputText id="rgFuncionario"/>
+					
+					<h:outputLabel value="Data Nascimento" for="dataNascimento"/>
+					<h:inputText id="dataNascimento"/>
+					
+					<h:outputLabel value="Data Admissão" for="dataAdmissao"/>
+					<h:inputText id="dataAdmissao"/>
+					
+					<h:outputLabel value="Data Demissão" for="dataDemissao"/>
+					<h:inputText id="dataDemissao"/>
+					
+					<h:outputLabel value="Situação" for="situacao"/>
+					<h:selectOneMenu>
+						<f:selectItem itemLabel="Seleciona..."/>
+					</h:selectOneMenu>
+					
+					<h:outputLabel  value="Telefene: "/>
+					<h:selectManyListbox label="Telefone: " value="telefone">
+						<f:selectItem itemValue="" itemLabel="Telefone 1"/>
+						<f:selectItem itemValue="" itemLabel="Telefone 2"/>
+						<f:selectItem itemValue="" itemLabel="Telefone 3"/>
+						<f:selectItem itemValue="" itemLabel="Telefone 4"/>
+					</h:selectManyListbox>
+					
+					<h:commandButton value="Salvar"/>
+				
+				</h:panelGrid>
+			</h:form>
+		</div>
+	<footer>QR Food - Seu pedido sem filas</footer>
+	</h:body>
+</html>

@@ -11,10 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -44,36 +42,41 @@ public class Pedido implements Serializable {
 	@Column ( name = "hora_pedido", nullable = false )
 	private Date horaPedido;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn ( name = "id_situacao_pedido", nullable = false )
 	private SituacaoPedido situacaopedido;
 	
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumn ( name = "id_forma_pagamento", nullable = false )
 	private FormaPagamento formapagamento;
 	
-	@ManyToMany
-	@JoinTable ( name = "produto_has_pedido", joinColumns = {
-			@JoinColumn ( name = "id_pedido", nullable = false )},
-			inverseJoinColumns = { 
-			@JoinColumn ( name = "id_produto", nullable = false )} )
-	private List <Produto> produto = new ArrayList<Produto>();
+	@OneToMany ( mappedBy = "pedido" )
+	private List<ProdutoHasPedido> produtohaspedido = new ArrayList<ProdutoHasPedido>();
+	
+	@OneToMany ( mappedBy = "produto" )
+	private List<ProdutoHasPedido> produtohaspedido1 = new ArrayList<ProdutoHasPedido>();
+	
+	@OneToMany ( mappedBy = "usuario" )
+	private List<ProdutoHasPedido> produtohaspedido2 = new ArrayList<ProdutoHasPedido>();
 	
 	public Pedido() {
 		//super();
 	}
 
 	public Pedido(int idPedido, String numeroPedido, String quantidade, Date dataPedido, Date horaPedido,
-			SituacaoPedido situacaopedido, FormaPagamento formapagamento, List<Produto> produto) {
-		super();
-		this.idPedido       = idPedido;
-		this.numeroPedido   = numeroPedido;
-		this.quantidade     = quantidade;
-		this.dataPedido     = dataPedido;
-		this.horaPedido     = horaPedido;
+			SituacaoPedido situacaopedido, FormaPagamento formapagamento, List<ProdutoHasPedido> produtohaspedido,
+			List<ProdutoHasPedido> produtohaspedido1, List<ProdutoHasPedido> produtohaspedido2) {
+		//super();
+		this.idPedido = idPedido;
+		this.numeroPedido = numeroPedido;
+		this.quantidade = quantidade;
+		this.dataPedido = dataPedido;
+		this.horaPedido = horaPedido;
 		this.situacaopedido = situacaopedido;
 		this.formapagamento = formapagamento;
-		this.produto        = produto;
+		this.produtohaspedido = produtohaspedido;
+		this.produtohaspedido1 = produtohaspedido1;
+		this.produtohaspedido2 = produtohaspedido2;
 	}
 
 	public int getIdPedido() {
@@ -132,13 +135,29 @@ public class Pedido implements Serializable {
 		this.formapagamento = formapagamento;
 	}
 
-	public List<Produto> getProduto() {
-		return produto;
+	public List<ProdutoHasPedido> getProdutohaspedido() {
+		return produtohaspedido;
 	}
 
-	public void setProduto(List<Produto> produto) {
-		this.produto = produto;
-	}	
+	public void setProdutohaspedido(List<ProdutoHasPedido> produtohaspedido) {
+		this.produtohaspedido = produtohaspedido;
+	}
+
+	public List<ProdutoHasPedido> getProdutohaspedido1() {
+		return produtohaspedido1;
+	}
+
+	public void setProdutohaspedido1(List<ProdutoHasPedido> produtohaspedido1) {
+		this.produtohaspedido1 = produtohaspedido1;
+	}
+
+	public List<ProdutoHasPedido> getProdutohaspedido2() {
+		return produtohaspedido2;
+	}
+
+	public void setProdutohaspedido2(List<ProdutoHasPedido> produtohaspedido2) {
+		this.produtohaspedido2 = produtohaspedido2;
+	}
 
 	@Override
 	public int hashCode() {
@@ -166,6 +185,7 @@ public class Pedido implements Serializable {
 	public String toString() {
 		return "Pedido [idPedido=" + idPedido + ", numeroPedido=" + numeroPedido + ", quantidade=" + quantidade
 				+ ", dataPedido=" + dataPedido + ", horaPedido=" + horaPedido + ", situacaopedido=" + situacaopedido
-				+ ", formapagamento=" + formapagamento + ", produto=" + produto + "]";
+				+ ", formapagamento=" + formapagamento + ", produtohaspedido=" + produtohaspedido
+				+ ", produtohaspedido1=" + produtohaspedido1 + ", produtohaspedido2=" + produtohaspedido2 + "]";
 	}	
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1993/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:head>
+
+		<meta charset="UTF-8"/>
+		<title>Cadastro de Pedido</title>
+		<h:outputStylesheet library="appqrfood" name="estilo.css"/>
+
+	</h:head>
+
+	<h:body>
+		
+		<header>
+			<h:graphicImage library="appqrfood" name="logomarca.png"/>
+		</header>
+		
+		<div id="conteudo">
+		
+			<h:form>
+			
+				<h:panelGrid columns="2">
+				
+					<h:outputLabel value="Número do Pedido" for="numeroPedido"/>
+					<h:inputText id="numeroPedido"/>
+					
+					<h:outputLabel value="Quantidade" for="quantidade"/>
+					<h:inputText id="quantidade"/>
+					
+					<h:outputLabel value="Data Pedido" for="dataPedido"/>
+					<h:inputText id="dataPedido"/>
+					
+					<h:outputLabel value="Hora Pedido" for="horaPedido"/>
+					<h:inputText id="horaPedido"/>
+					
+					<h:outputLabel value="Situação Pedido" for="situacaopedido"/>
+					<h:selectOneMenu>
+						<f:selectItem itemLabel="Selecione..."/>
+					</h:selectOneMenu>
+					
+					<h:outputLabel value="Forma Pagamento" for="formapagamento"/>
+					<h:selectOneMenu>
+						<f:selectItem itemLabel="Selecione..."/>
+					</h:selectOneMenu>
+				
+				</h:panelGrid>
+				
+			</h:form>
+			
+		</div>
+			
+	</h:body>
+	
+</html>

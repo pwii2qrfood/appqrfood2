@@ -35,10 +35,9 @@ public class FormaPagamento implements Serializable {
 	@JoinColumn ( name = "id_situacao", nullable = false )
 	private Situacao situacao;
 	
-	@OneToMany ( mappedBy = "formapagamento" )
+	@OneToMany ( mappedBy = "formapagamento")
 	private List<Pedido> pedido = new ArrayList<Pedido>();
 	
-
 	public FormaPagamento() {
 		//super();
 	}
