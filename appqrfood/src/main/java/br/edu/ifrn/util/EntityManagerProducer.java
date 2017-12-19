@@ -1,5 +1,6 @@
 package br.edu.ifrn.util;
 
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
@@ -9,7 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ApplicationScoped
-public class EntityManagerProducer {
+public class EntityManagerProducer{
 	
 	private EntityManagerFactory factory;
 	

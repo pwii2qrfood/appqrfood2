@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1993/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:h="http://xmlns.jcp.org/jsf/html"
 		xmlns:f="http://xmlns.jcp.org/jsf/core">
-	<h:head>
-		<meta charset="UTF-8"/>
-		<title>Cadastro de Usuários</title>
-		<h:outputStylesheet library="appqrfood" name="estilo.css"/>
-	</h:head>
-	<h:body>
-		<header>
-			<h:graphicImage library="appqrfood" name="logomarca.png"/>
-		</header>
+				
+<h:head>
+	<meta charset="UTF-8"/>
+	<title>Escopo</title>
+	<h:outputStylesheet library="appqrfood" name="estilo.css"/>
+</h:head>
+
+<h:body>
+	<header>
+		<h:graphicImage library="appqrfood" name="logomarca.png"/>
+	</header>
 	
 		<div id="conteudo">
+		
+		<LABEL>Número</LABEL><INPUT name="" type="text" value="${usuarioBean.numero}"/>
 			<h:form>
 				<h:panelGrid columns="2">
 				
 					<h:outputLabel value="Número: "/>
-					<h:outputText value ="#{usuarioBean.numero}"/>
-										
+					<h:outputText value="#{usuarioBean.numero}"/>
+							
 					<h:outputLabel/>
 					<h:commandButton value="Salvar"/>
 

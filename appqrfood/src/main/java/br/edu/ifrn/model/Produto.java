@@ -90,14 +90,14 @@ public class Produto implements Serializable {
 
 	public void setSituacao(Situacao situacao) {
 		this.situacao = situacao;
-	}
+	}	
 
-	public List<Pedido> getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(List<Pedido> pedido) {
+	public void setPedido(List<ProdutoHasPedido> pedido) {
 		this.pedido = pedido;
+	}
+
+	public List<ProdutoHasPedido> getPedido() {
+		return pedido;
 	}
 
 	@Override
@@ -125,6 +125,6 @@ public class Produto implements Serializable {
 	@Override
 	public String toString() {
 		return "Produto [idProduto=" + idProduto + ", nomeProduto=" + nomeProduto + ", valor=" + valor + ", descricao="
-				+ descricao + ", situacao=" + situacao + "]";
+				+ descricao + ", situacao=" + situacao + ", pedido=" + pedido + "]";
 	}
 }
