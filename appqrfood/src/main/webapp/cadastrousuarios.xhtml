@@ -18,35 +18,36 @@
 				<h:panelGrid columns="2">
 				
 					<h:outputLabel value="Nome Completo: " for="nomeCompletoUsuario"/>
-					<h:inputText id="nomeCompletoUsuario"/>
+					<h:inputText id="nomeCompletoUsuario" value="#{usuarioBean.usuario.nomeCompletoUsuario}"/>
 										
 					<h:outputLabel value="Primeiro Nome: " for="nomeUsuario"/>
-					<h:inputText id="nomeUsuario"/>
+					<h:inputText id="nomeUsuario" value="#{usuarioBean.usuario.nomeUsuario}"/>
 					
 					<h:outputLabel value="Sobrenome: " for="sobrenomeUsuario"/>
-					<h:inputText id="sobrenomeUsuario"/>
+					<h:inputText id="sobrenomeUsuario" value="#{usuarioBean.usuario.sobrenomeUsuario}"/>
 					
 					<h:outputLabel value="Senha: " for="senhaUsuario"/>
-					<h:inputText id="senhaUsuario"/>
+					<h:inputText id="senhaUsuario" value="#{usuarioBean.usuario.senhaUsuario}"/>
 					
 					<h:outputLabel value="E-mail: " for="emailUsuario"/>
-					<h:inputText id="emailUsuario"/>
+					<h:inputText id="emailUsuario"/ value="#{usuarioBean.usuario.emailUsuario}">
 					
 					<h:outputLabel value="CPF: " for="cpfUsuario"/>
-					<h:inputText id="cpfUsuario"/>
+					<h:inputText id="cpfUsuario" value="#{usuarioBean.usuario.cpfUsuario}"/>
 					
 					<h:outputLabel value="RG: " for="rgUsuario"/>
-					<h:inputText id="rgUsuario"/>
+					<h:inputText id="rgUsuario" value="#{usuarioBean.usuario.rgUsuario}"/>
 					
 					<h:outputLabel value="Data Nascimento: " for="dataNascimento"/>
-					<h:inputText id="dataNascimento" />
+					<h:inputText id="dataNascimento" value="#{usuarioBean.usuario.dataNascimento}"/>
 					
 					<h:outputLabel value="Tipo Usuário: " for="tipoUsuario"/>
-					<h:inputText id="tipoUsuario"/>
+					<h:inputText id="tipoUsuario" value="#{usuarioBean.usuario.tipoUsuario}"/>
 										
 					<h:outputLabel value="Situação: " for="situacao"/>
-					<h:selectOneMenu id="situacao">
+					<h:selectOneMenu id="situacao" value="#{usuarioBean.usuario.situacao}">
 						<f:selectItem itemLabel="Selecione..." />
+						<f:selectItems />
 					</h:selectOneMenu>
 					
 					<h:outputLabel  value="Telefene: "/>

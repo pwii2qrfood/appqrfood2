@@ -1,24 +1,30 @@
 package br.edu.ifrn.controller;
 
-
 import java.io.Serializable;
 
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
-@Named
-@RequestScoped
+import br.edu.ifrn.DAO.SituacaoDAO;
+import br.edu.ifrn.model.Situacao;
+import br.edu.ifrn.model.Usuario;
+
+@Named(value = "usuarioBean")
+@ViewScoped
 public class UsuarioBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private static Integer numero = 0;
 	
-	public UsuarioBean() {
-		numero ++;
-		System.out.println(numero);
+	private Usuario usuario;
+	
+	public Usuario getUsuario() {
+		return usuario;
 	}
 	
-	public Integer getNumero() {
-		return numero;
+	public Situacao[] getSituacao() {
+		return Situacao.class();
+		
 	}
+	
+	
 }
