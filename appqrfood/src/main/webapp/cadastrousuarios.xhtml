@@ -18,7 +18,7 @@
 				<h:panelGrid columns="2">
 				
 					<h:outputLabel value="Nome Completo: " for="nomeCompletoUsuario"/>
-					<h:inputText id="nomeCompletoUsuario" value="#{usuarioBean.usuario.nomeCompletoUsuario}"/>
+					<h:inputText id="nomeCompletoUsuario" value="#{UsuarioBean.usuario.nomeCompletoUsuario}"/>
 										
 					<h:outputLabel value="Primeiro Nome: " for="nomeUsuario"/>
 					<h:inputText id="nomeUsuario" value="#{usuarioBean.usuario.nomeUsuario}"/>
@@ -43,51 +43,22 @@
 					
 					<h:outputLabel value="Tipo Usuário: " for="tipoUsuario"/>
 					<h:inputText id="tipoUsuario" value="#{usuarioBean.usuario.tipoUsuario}"/>
-										
-					<h:outputLabel value="Situação: " for="situacao"/>
-					<h:selectOneMenu id="situacao" value="#{usuarioBean.usuario.situacao}">
-						<f:selectItem itemLabel="Selecione..." />
-						<f:selectItems />
-					</h:selectOneMenu>
 					
-					<h:outputLabel  value="Telefene: "/>
-					<h:selectManyListbox label="Telefone: " value="Telefone">
-						<f:selectItem itemValue="1" itemLabel="Item 1"/>
-						<f:selectItem itemValue="2" itemLabel="Item 2"/>
-						<f:selectItem itemValue="3" itemLabel="Item 3"/>
-						<f:selectItem itemValue="4" itemLabel="Item 4"/>
-					</h:selectManyListbox>
-
-					<h:commandButton value="Salvar"/>
-
+					<h:outputLabel value= "Telefone: " for="telefone"></h:outputLabel>
+					<h:inputText id="telefone" value="#{usuarioBean.usuario.telefone}"></h:inputText>
+										
+					<h:outputLabel value="Sexo:" for="TipoUsuario" />
+			        <h:selectOneRadio id="TipoUsuario" value="#{UsuarioBean.usuario.TipoUsuario}">
+				    <f:selectItem itemLabel="Masculino" itemValue="M" />
+				    <f:selectItem itemLabel="Feminino" itemValue="F" />
+			        </h:selectOneRadio>
+					 
+					<h:commandButton value="Cadastrar" icon="fa fa-plus"
+		            			actionListener="#{UsuarioBean.prepararNovoUsuario}"
+		            			oncomplete="PF('usuarioDialogWidgetVar').show()"
+		            			update="usuarioDialog" process="@this" >
+		            </h:commandButton>
 				</h:panelGrid>
-				
-				<h:dataTable>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Id"/>
-						</f:facet>
-							<h:outputText value="QR food teste"/>
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="Nome Completo"/>
-						</f:facet>
-						<h:outputText value="CHICO BATEU NO BODE"/>
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="E-mail"/>
-						</f:facet>
-						<h:outputText value="CHUPA QUE É DE UVA"/>
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText value="CPF"/>
-						</f:facet>
-						<h:outputText value="TODA BOA"/>
-					</h:column>
-				</h:dataTable>
 				
 			</h:form>
 		</div>

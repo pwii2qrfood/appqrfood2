@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 
 import br.edu.ifrn.model.Usuario;
 
+
 public class UsuarioDAO implements Serializable {
 
 private static final long serialVersionUID = 1L;
@@ -51,4 +52,7 @@ private static final long serialVersionUID = 1L;
 		
 		return resultado.getResultList();
 	}
+	public List<Usuario> ListarTodos() {
+        return manager.createQuery("from Usuario", Usuario.class).getResultList();
+   }
 }
