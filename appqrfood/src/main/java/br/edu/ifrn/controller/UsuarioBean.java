@@ -20,11 +20,4 @@ public class UsuarioBean implements Serializable{
 	public Usuario getUsuario() {
 		return usuario;
 	}
-	
-	public Situacao[] getSituacao() {
-		return Situacao.class();
-		
-	}
-	
-	
 }

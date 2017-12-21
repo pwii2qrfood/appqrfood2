@@ -18,41 +18,42 @@
 				<h:panelGrid columns="2">
 					
 					<h:outputLabel value="Matrícula: " for="matricula"/>
-					<h:inputText id="matricula"/>
+					<h:inputText id="matricula" value="#{funcionarioBean.funcionario.matricula}"/>
 					
 					<h:outputLabel value="Nome Completo: " for="nomeCompletoFuncionario"/>
-					<h:inputText id="nomeCompletoFuncionario"/>
+					<h:inputText id="nomeCompletoFuncionario" value="#{funcionarioBean.funcionario.nomeCompletoFuncionario}"/>
 					
 					<h:outputLabel value="Primeiro Nome:" for="nomeFuncionario"/>
-					<h:inputText id="nomeFuncionario"/>
+					<h:inputText id="nomeFuncionario" value="#{funcionarioBean.funcionario.nomeFuncionario}"/>
 					
 					<h:outputLabel value="Sobrenome" for="sobrenomeFuncionario"/>
-					<h:inputText id="sobrenomeFuncionario"/>
+					<h:inputText id="sobrenomeFuncionario" value="#{funcionarioBean.funcionario.sobrenomeFuncionario}"/>
 					
 					<h:outputLabel value="Senha" for="senhaFuncionario"/>
-					<h:inputText id="senhaFuncionario"/>
+					<h:inputText id="senhaFuncionario" value="#{funcionarioBean.funcionario.senhaFuncionario}"/>
 					
 					<h:outputLabel value="E-mail" for="emailFuncionario"/>
-					<h:inputText id="emailFuncionario"/>
+					<h:inputText id="emailFuncionario" value="#{funcionarioBean.funcionario.emailFuncionario}"/>
 					
 					<h:outputLabel value="CPF" for="cpfFuncionario"/>
-					<h:inputText id="cpfFuncionario"/>
+					<h:inputText id="cpfFuncionario" value="#{funcionarioBean.funcionario.cpfFuncionario}"/>
 					
 					<h:outputLabel value="RG" for="rgFuncionario"/>
-					<h:inputText id="rgFuncionario"/>
+					<h:inputText id="rgFuncionario" value="#{funcionarioBean.funcionario.rgFuncionario}"/>
 					
 					<h:outputLabel value="Data Nascimento" for="dataNascimento"/>
-					<h:inputText id="dataNascimento"/>
+					<h:inputText id="dataNascimento" value="#{funcionarioBean.funcionario.dataNascimento}"/>
 					
 					<h:outputLabel value="Data Admissão" for="dataAdmissao"/>
-					<h:inputText id="dataAdmissao"/>
+					<h:inputText id="dataAdmissao" value="#{funcionarioBean.funcionario.dataAdmissao}"/>
 					
 					<h:outputLabel value="Data Demissão" for="dataDemissao"/>
-					<h:inputText id="dataDemissao"/>
+					<h:inputText id="dataDemissao" value="#{funcionarioBean.funcionario.dataDemissao}"/>
 					
 					<h:outputLabel value="Situação" for="situacao"/>
-					<h:selectOneMenu>
+					<h:selectOneMenu id="situacao" value="#{funcionarioBean.funcionario.situacao.tipoSituacao}">
 						<f:selectItem itemLabel="Seleciona..."/>
+						
 					</h:selectOneMenu>
 					
 					<h:outputLabel  value="Telefene: "/>
@@ -63,8 +64,11 @@
 						<f:selectItem itemValue="" itemLabel="Telefone 4"/>
 					</h:selectManyListbox>
 					
-					<h:commandButton value="Salvar"/>
-				
+					<h:commandButton value="Salvar" />
+					
+					<h:outputLabel/>
+					<h:commandLink value="Ajuda?" action="#{funcionarioBean.ajuda}"/>
+					
 				</h:panelGrid>
 			</h:form>
 		</div>
